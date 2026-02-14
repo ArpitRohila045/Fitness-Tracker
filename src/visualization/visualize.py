@@ -5,7 +5,7 @@ import matplotlib as mpl
 # --------------------------------------------------------------
 # Load data
 # --------------------------------------------------------------
-
+data = pd.read_pickle("../../data/interim/01_data_processed.pkl")
 
 # --------------------------------------------------------------
 # Plot single columns
@@ -15,7 +15,12 @@ import matplotlib as mpl
 # --------------------------------------------------------------
 # Plot all exercises
 # --------------------------------------------------------------
-
+for label in data["label"].unique():
+    subset = data[data["label"] == label]
+    fig, ax = plt.subplots()
+    plt.plot(subset["acc_y"].reset_index(drop=True), label=label)
+    plt.legend()
+    plt.show()
 
 # --------------------------------------------------------------
 # Adjust plot settings

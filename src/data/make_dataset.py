@@ -23,9 +23,9 @@ def read_from_files(files : List[str]):
     gyr_set = 1
 
     for f in files:
-        participant = files[0].split("-")[0].replace(data_path, "")
-        label = files[0].split("-")[1]
-        category = files[0].split("-")[2].rstrip("123").rstrip("_MetaWear_2019")
+        participant = f.split("-")[0].replace(data_path, "")
+        label = f.split("-")[1]
+        category = f.split("-")[2].rstrip("123").rstrip("_MetaWear_2019")
 
         df = pd.read_csv(f)
 
